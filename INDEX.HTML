@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institute of Technology Baun, Uttarkashi - TECH TRIANG 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-dark: #051225;
+            --secondary-dark: #07203a;
+            --accent-gold: #d4af37;
+            --accent-blue: #2a5c8b;
+            --light-text: #f0f8ff;
+            --medium-text: #c9d6e6;
+            --dark-text: #051225;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            background: linear-gradient(180deg, #051225 0%, #07203a 60%);
+            color: var(--light-text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Dynamic Header Styles */
+        header {
+            background: linear-gradient(180deg, rgba(5, 18, 37, 0.95) 0%, rgba(7, 32, 58, 0.9) 100%);
+            color: var(--light-text);
+            padding: 20px 0;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 100;
+            transition: all 0.4s ease;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 15px;
+            transition: all 0.5s ease;
+        }
+
+        .logo-img {
+            height: 90px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            transition: all 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: translateY(-5px);
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
+        }
+
+        .university-logo {
+            border-right: 2px solid var(--accent-gold);
+            padding-right: 40px;
+        }
+
+        .college-name {
+            text-align: center;
+            margin-bottom: 10px;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .college-name:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.02);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .college-name h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            background: linear-gradient(to right, var(--accent-gold), #f0e68c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .college-name h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--medium-text);
+        }
+
+        /* Dynamic header scroll effect */
+        .header-scrolled {
+            padding: 12px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(180deg, rgba(5, 18, 37, 0.98) 0%, rgba(7, 32, 58, 0.95) 100%);
+        }
+
+        .header-scrolled .logo-container {
+            gap: 25px;
+            margin-bottom: 10px;
+        }
+
+        .header-scrolled .logo-img {
+            height: 70px;
+        }
+
+        .header-scrolled .university-logo {
+            padding-right: 25px;
+        }
+
+        .header-scrolled .college-name {
+            padding: 10px 20px;
+        }
+
+        .header-scrolled .college-name h1 {
+            font-size: 1.5rem;
+        }
+
+        .header-scrolled .college-name h2 {
+            font-size: 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(5, 18, 37, 0.85), rgba(7, 32, 58, 0.9)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--light-text);
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(7, 32, 58, 0.5) 100%);
+            pointer-events: none;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            color: #fff;
+            position: relative;
+            z-index: 2;
+            letter-spacing: 2px;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+            font-weight: 300;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 2;
+            color: var(--medium-text);
+        }
+
+        .date-venue {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            background: rgba(5, 18, 37, 0.7);
+            display: inline-block;
+            padding: 20px 40px;
+            border-radius: 12px;
+            border-left: 6px solid var(--accent-gold);
+            color: white;
+            position: relative;
+            z-index: 2;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .date-venue:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            background: rgba(5, 18, 37, 0.9);
+        }
+
+        /* Events Section */
+        .events-section {
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .events-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            color: var(--accent-gold);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+            bottom: -15px;
+            left: 20%;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--medium-text);
+            margin-bottom: 50px;
+        }
+
+        .events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .event-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 35px 25px;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid var(--card-border);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .event-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--accent-gold), var(--accent-blue), var(--accent-gold));
+        }
+
+        .event-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .event-icon {
+            font-size: 4rem;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover .event-icon {
+            transform: scale(1.2);
+            color: #f0e68c;
+        }
+
+        .event-card h3 {
+            font-size: 1.8rem;
+            color: var(--light-text);
+            margin-bottom: 15px;
+        }
+
+        .event-card p {
+            color: var(--medium-text);
+            margin-bottom: 25px;
+            flex-grow: 1;
+            line-height: 1.7;
+        }
+
+        .event-tag {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--accent-gold);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .event-tag a{
+            text-decoration: none;
+            color: var(--accent-gold);
+
+        }
+
+        .event-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 60px;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            min-width: 240px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s;
+        }
+
+        .btn:hover:after {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, var(--accent-gold), #b8941f);
+            color: var(--dark-text);
+            border: 2px solid var(--accent-gold);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(to right, var(--accent-blue), #1a3c8b);
+            color: white;
+            border: 2px solid var(--accent-blue);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(26, 60, 139, 0.4);
+        }
+
+        /* Guests Section */
+        .guests-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .guests-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, transparent, var(--accent-blue), transparent);
+        }
+
+        .guests-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .guest-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border: 1px solid var(--card-border);
+            position: relative;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+
+        .guest-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .guest-image-container {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            overflow: hidden;
+            border: 5px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .guest-card:hover .guest-image-container {
+            transform: scale(1.05);
+            border-color: rgba(212, 175, 55, 0.6);
+        }
+
+        .guest-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .guest-card:hover .guest-img {
+            transform: scale(1.1);
+        }
+
+        .guest-card h3 {
+            font-size: 1.8rem;
+            color: var(--light-text);
+            margin-bottom: 10px;
+        }
+
+        .guest-designation {
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .guest-role {
+            color: var(--accent-blue);
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: rgba(42, 92, 139, 0.2);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(42, 92, 139, 0.4);
+        }
+
+        .guest-card p {
+            color: var(--medium-text);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(180deg, rgba(5, 18, 37, 0.95), rgba(3, 14, 30, 0.98));
+            color: var(--light-text);
+            padding: 60px 0 20px;
+            margin-top: 40px;
+            position: relative;
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-gold);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .contact-info i {
+            color: var(--accent-gold);
+            margin-top: 4px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Workshop Info */
+        .workshop-info {
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 50px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .workshop-info h3 {
+            color: var(--accent-gold);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .workshop-info p {
+            color: var(--medium-text);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            
+            .date-venue {
+                font-size: 1.3rem;
+                padding: 15px 30px;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo-container {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .university-logo {
+                border-right: none;
+                border-bottom: 2px solid var(--accent-gold);
+                padding-right: 0;
+                padding-bottom: 25px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .date-venue {
+                font-size: 1.1rem;
+                padding: 15px 25px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .event-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 320px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 80px 15px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .date-venue {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .event-card {
+                padding: 25px 15px;
+            }
+            
+            .guest-card {
+                padding: 25px 15px;
+            }
+            
+            .guest-image-container {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        /* Animation for buttons on click */
+        @keyframes buttonClick {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+
+        .btn:active {
+            animation: buttonClick 0.2s ease;
+        }
+
+        /* Gold shimmer effect */
+        @keyframes shimmer {
+            0% { background-position: -500px 0; }
+            100% { background-position: 500px 0; }
+        }
+
+        .shimmer-effect {
+            background: linear-gradient(90deg, 
+                var(--accent-gold) 0%, 
+                #f0d36e 25%, 
+                var(--accent-gold) 50%, 
+                #f0d36e 75%, 
+                var(--accent-gold) 100%);
+            background-size: 1000px 100%;
+            animation: shimmer 3s infinite linear;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 18, 37, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            background: linear-gradient(180deg, #0a1f3a 0%, #07203a 100%);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 700px;
+            width: 90%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--accent-gold);
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: none;
+            border: none;
+        }
+        
+        .close-modal:hover {
+            color: #f0e68c;
+            transform: rotate(90deg);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dynamic Header Section -->
+    <header id="mainHeader">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <!-- University Logo -->
+                    <div class="university-logo">
+                        <img src="logo utu.png" 
+                             alt="Veer Madho Singh Bhandari Uttarakhand Technical University" 
+                             class="logo-img">
+                    </div>
+                    
+                    <!-- College Logo -->
+                    <div class="college-logo">
+                        <img src="header-logo IT baun.png" 
+                             alt="Institute of Technology Baun, Uttarkashi" 
+                             class="logo-img">
+                    </div>
+                </div>
+                
+                <div class="college-name">
+                    <h1>Institute of Technology Baun, Uttarkashi</h1>
+                    <h2>A Campus Institute of Veer Madho Singh Bhandari Uttarakhand Technical University</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="shimmer-effect">TECH महोत्सव ' 2025</h1>
+                <h2>Technical Festival & Innovation Expo</h2>
+                <p>
+                    Join us for an exhilarating celebration of technology, creativity, and innovation at the annual tech festival of IT Baun, Uttarkashi.
+                </p>
+                <div class="date-venue">
+                    <i class="fas fa-map-marker-alt"></i> Institute of Technology Baun Campus | 
+                    <i class="fas fa-calendar-alt"></i> December 19, 2025
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events-section">
+        <div class="container">
+            <h2 class="section-title">Events & Competitions</h2>
+            <p class="section-subtitle">Showcase your skills and compete with the best minds</p>
+            
+            <div class="events-container">
+                <!-- Event 1: Robo Race -->
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Robo Race Competition</h3>
+                    <H5>(For School Students)</H5>
+                    <p>Design, build, and race your robots in this thrilling competition. Test your engineering skills and creativity in autonomous and manual robotics challenges.</p>
+                    <div class="event-tag"><a href="https://forms.gle/ogGeNtVS5L3ZMxTG8">Register Now</a></div>
+                </div>
+                
+                <!-- Event 2: Hackathon -->
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    
+                    <h3>Inter Collegiate Hackathon</h3>
+                    <H5>(For College Students)</H5>
+                    <p>A 24-hour coding marathon where college students solve real-world problems. Collaborate, innovate, and build solutions that matter.</p>
+                    <div class="event-tag"><a href="https://forms.gle/pNUdGsaxGtjny8h79">Register Now</a></div>
+                </div>
+                
+                <!-- Event 3: Live Quiz -->
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Live Quiz</h3>
+                    <H5>(For School Students)</H5>
+                    <p>Test your knowledge across technology, science, and current affairs in this fast-paced quiz competition. Individual and team categories available.</p>
+                    <div class="event-tag"><a href="https://forms.gle/6sSTBXaiEhD8Grb5A">Register Now</a></div>
+                </div>
+                
+                <!-- Event 4: Sketching -->
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Sketching Competition</h3>
+                    <H5>(For School Students)</H5>
+                    <p>Unleash your creativity in this art competition. Themes include technology, nature, and innovation. Express your vision through sketches and drawings.</p>
+                    <div class="event-tag"><a href="https://forms.gle/VuGsuQRs94tK53NT9">Register Now</a></div>
+                </div>
+            </div>
+            
+            <!-- Event Buttons -->
+            <div class="event-buttons">
+                <button class="btn btn-primary" id="roboRaceBtn">
+                    <i class="fas fa-robot"></i> Robo Race Details
+                </button>
+                <button class="btn btn-primary" id="hackathonBtn">
+                    <i class="fas fa-laptop-code"></i> Hackathon Details
+                </button>
+                <button class="btn btn-secondary" id="quizBtn">
+                    <i class="fas fa-brain"></i> Live Quiz Details
+                </button>
+                <button class="btn btn-secondary" id="sketchingBtn">
+                    <i class="fas fa-palette"></i> Sketching Details
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chief Guests Section -->
+    <section class="guests-section">
+        <div class="container">
+            <h2 class="section-title">Honorable Guests</h2>
+            <p class="section-subtitle">We are honored to welcome our distinguished guests</p>
+            
+            <div class="guests-container">
+                <!-- Chief Guest -->
+                <div class="guest-card">
+                    <div class="guest-image-container">
+                        <img src="SECREARY TECHNICAL EDUCATION.jpg" 
+                             alt="Dr. Ranjit Kumar Sinha" 
+                             class="guest-img">
+                    </div>
+                    <h3>Dr. Ranjit Kumar Sinha</h3>
+                    <div class="guest-designation">Hon'ble Secretary Technical & Higher Education, Government of Uttarakhand</div>
+                    <div class="guest-role">Chief Guest</div>
+                    
+                </div>
+                
+                <!-- Guest of Honor -->
+                <div class="guest-card">
+                    <div class="guest-image-container">
+                        <img src="VC UTU.jpg" 
+                             alt="Dr. Tripta Thakur" 
+                             class="guest-img">
+                    </div>
+                    <h3>Dr. Tripta Thakur</h3>
+                    <div class="guest-designation">Hon'ble Vice Chancellor, Veer Madho Singh Bhandari Uttarakhad Technical University </div>
+                    <div class="guest-role">Guest of Honor</div>
+                    
+                </div>
+            </div>
+            
+            <!-- Workshop Info -->
+            <div class="workshop-info">
+                <h3><i class="fas fa-chalkboard-teacher"></i> Special Workshop</h3>
+                <p>Drone Technology Workshop by Industry Experts</p>
+                <button class="btn btn-primary" id="workshopBtn">
+                    <i class="fas fa-info-circle"></i> Workshop Details
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Institute</h3>
+                    <p>Institute of Technology Baun, Uttarkashi is a premier technical institute under Veer Madho Singh Bhandari Uttarakhand Technical University, committed to excellence in technical education and innovation.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Information</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Institute of Technology Baun, Uttarkashi, Uttarakhand - 249193</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+91-XXXXXX-XXXXX</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@itbaun.ac.in</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-globe"></i>
+                            <span>www.itbaun.ac.in</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-arrow-right"></i> <span>About TECH TRIANG 2025</span></li>
+                        <li><i class="fas fa-arrow-right"></i> <span>Registration Guidelines</span></li>
+                        <li><i class="fas fa-arrow-right"></i> <span>Event Schedule</span></li>
+                        <li><i class="fas fa-arrow-right"></i> <span>Campus Directions</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Institute of Technology Baun, Uttarkashi. All Rights Reserved. | Designed for TECH महोत्सव ' 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Event Details -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h2 id="modalTitle" style="color: var(--accent-gold); margin-bottom: 20px;"></h2>
+            <div id="modalContent" style="color: var(--medium-text); line-height: 1.8; font-size: 1.1rem;"></div>
+            <div style="margin-top: 30px; padding: 15px; background: rgba(212, 175, 55, 0.1); border-radius: 10px; border-left: 4px solid var(--accent-gold);">
+                <p style="color: var(--accent-gold); font-weight: 600;"><i class="fas fa-info-circle"></i> For registration and more details, please visit the registration desk at the venue.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dynamic Header Scroll Effect
+        const header = document.getElementById('mainHeader');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // Modal functionality
+        const eventModal = document.getElementById('eventModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalContent = document.getElementById('modalContent');
+        const closeModal = document.getElementById('closeModal');
+        
+        // Event button interactions
+        document.getElementById('roboRaceBtn').addEventListener('click', function() {
+            showEventModal('Robo Race Competition', 
+                '<p><strong>Date:</strong> December 19, 2025<br>' +
+                // '<strong>Time:</strong> 10:00 AM - 4:00 PM<br>' +
+                
+                '<strong>Venue:</strong> Robotics Lab, IT Baun<br>' +
+                '<strong>Eligibility:</strong> School Students<br>' +
+                // '<strong>Registration Deadline:</strong> December 15, 2025</p>' +
+                '<p>Build and race your robot through challenging terrains and obstacles. ' +
+                'Participants will design and program autonomous or manually controlled robots ' +
+                'to complete a specially designed racetrack. Prizes will be awarded for fastest ' +
+                'completion time and most innovative design.</p>' +
+                '<p><strong>Theme:</strong> "Robotics for Sustainable Future"</p>');
+        });
+
+        document.getElementById('hackathonBtn').addEventListener('click', function() {
+            showEventModal('Inter Collegiate Hackathon', 
+                '<p><strong>Date:</strong> December 19-20, 2025<br>' +
+                // '<strong>Time:</strong> 24-hour event starting at 9:00 AM<br>' +
+                '<strong>Venue:</strong> Computer Center, IT Baun<br>' +
+                '<strong>Eligibility:</strong> College Students<br>' +
+                
+                '<p>A Coding marathon where college students solve real-world problems. ' +
+                'Collaborate, innovate, and build solutions that matter. Mentors from industry ' +
+                'and academia will be available throughout the event.</p>' +
+                '<p><strong>Theme:</strong> "Technology for Sustainable Development"<br>' +
+                '<strong>Prizes:</strong> Trophies OR Medals , Certificates  </p>');
+        });
+
+        document.getElementById('quizBtn').addEventListener('click', function() {
+            showEventModal('Live Quiz Competition', 
+                '<p><strong>Date:</strong> December 19, 2025<br>' +
+                // '<strong>Time:</strong> 11:00 AM - 1:00 PM (Preliminary at 10:00 AM)<br>' +
+                '<strong>Venue:</strong> Auditorium, IT Baun<br>' +
+                '<strong>Eligibility:</strong> School Students (Individual or teams of max 3)<br>' +
+                // '<strong>On-spot Registration:</strong> Available until 9:30 AM</p>' +
+                '<p>Test your knowledge across technology, science, and current affairs in this ' +
+                'fast-paced quiz competition. The event will have multiple rounds including ' +
+                'visual, audio, and rapid-fire rounds.</p>' +
+                '<p><strong>Topics:</strong> Technology, Science, Current Affairs, General Knowledge<br>' +
+                '<strong>Prizes:</strong> Trophies OR certificates</p>');
+        });
+
+        document.getElementById('sketchingBtn').addEventListener('click', function() {
+            showEventModal('Sketching Competition', 
+                '<p><strong>Date:</strong> December 19, 2025<br>' +
+                // '<strong>Time:</strong> 2:00 PM - 5:00 PM<br>' +
+                '<strong>Venue:</strong> Art Room, IT Baun<br>' +
+                '<strong>Eligibility:</strong> School Students<br>' +
+                // '<strong>On-spot Registration:</strong> 1:00 PM - 1:45 PM</p>' +
+                '<p>Unleash your creativity in this art competition. Participants can use any ' +
+                'drawing medium (pencil, charcoal, pastels, etc.) on A3 size paper provided by ' +
+                'the organizers. All necessary materials will be supplied.</p>' +
+                '<p><strong>Theme:</strong> "To Be  Announced"<br>' +
+                '<strong>Judgement Criteria:</strong> Creativity, technique, adherence to theme<br>' +
+                '<strong>Prizes:</strong> Certificates OR medals </p>');
+        });
+
+        document.getElementById('workshopBtn').addEventListener('click', function() {
+            showEventModal('Drone Technology Workshop', 
+                '<p><strong>Date:</strong> December 19, 2025<br>' +
+                '<strong>Time:</strong> 10:00 AM - 5:00 PM<br>' +
+                '<strong>Venue:</strong> Seminar Hall, IT Baun<br>' +
+                '<strong>Eligibility:</strong> All registered participants<br>' +
+                '<strong>Seats:</strong> Limited to 50 participants</p>' +
+                '<p>Hands-on workshop on drone technology conducted by industry professionals. ' +
+                'Learn about design, programming, and applications of modern drones. Participants ' +
+                'will get practical experience in assembling and programming drones.</p>' +
+                '<p><strong>Topics Covered:</strong><br>' +
+                '- Drone components and assembly<br>' +
+                '- Flight dynamics and control systems<br>' +
+                '- Programming autonomous flight patterns<br>' +
+                '- Real-world applications of drone technology<br>' +
+                '- Safety regulations and best practices</p>' +
+                '<p><strong>Instructor:</strong> Industry experts from leading drone technology companies</p>');
+        });
+
+        // Function to show event modal
+        function showEventModal(title, content) {
+            modalTitle.textContent = title;
+            modalContent.innerHTML = content;
+            eventModal.style.display = 'flex';
+        }
+
+        // Close modal when close button is clicked
+        closeModal.addEventListener('click', function() {
+            eventModal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside modal content
+        window.addEventListener('click', function(event) {
+            if (event.target === eventModal) {
+                eventModal.style.display = 'none';
+            }
+        });
+
+        // Add visual feedback for button clicks
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.boxShadow = '0 0 0 10px rgba(212, 175, 55, 0.3)';
+                setTimeout(() => {
+                    this.style.boxShadow = '';
+                }, 400);
+            });
+        });
+
+        // Update the year in the footer dynamically
+        document.addEventListener('DOMContentLoaded', function() {
+            const year = new Date().getFullYear();
+            const copyrightText = document.querySelector('.copyright p');
+            if (copyrightText) {
+                copyrightText.innerHTML = copyrightText.innerHTML.replace('2025', year);
+            }
+            
+            // Add hover effects to logos
+            const logos = document.querySelectorAll('.logo-img');
+            logos.forEach(logo => {
+                logo.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.05)';
+                });
+                
+                logo.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
